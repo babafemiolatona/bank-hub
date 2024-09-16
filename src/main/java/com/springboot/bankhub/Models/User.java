@@ -7,7 +7,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
+import java.util.List;
 
 @Entity
 @Data
@@ -34,4 +36,6 @@ public class User {
 
     private String password;
 
+    @OneToMany(mappedBy = "user")
+    private List<Account> accounts;
 }
